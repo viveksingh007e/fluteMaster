@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg viewBox='0 0 64 64'%3E%3Ccircle cx='20' cy='20' r='10' fill='%23e74c3c'/%3E%3Ccircle cx='44' cy='20' r='10' fill='%233498db'/%3E%3Ccircle cx='20' cy='44' r='10' fill='%23f1c40f'/%3E%3Ccircle cx='44' cy='44' r='10' fill='%232ecc71'/%3E%3C/svg%3E" />
+    <title>Test Data OMS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: #064a1f;
+            color: #110202;
+        }
+
+        .item {
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        .copy-text {
+            cursor: pointer;
+            padding: 2px 5px;
+            border-radius: 4px;
+            transition: background-color 0.25s;
+        }
+
+        .copy-text:hover {
+            background-color: #9adda0;
+        }
+
+        .copy-text.copied {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Persistent highlight for last clicked copy-text */
+        .copy-text.selected {
+            background-color: #ffe066;
+            color: #222;
+        }
+
+
+        .links-grid {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 2px;
+        }
+
+        .link-btn {
+            background: #dae7db;
+            color: #091448;
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-decoration: underline;
+            font-size: 15px;
+            font-weight: bold;
+            transition: 0.25s;
+            border: 1px solid #004a99;
+        }
+
+        .link-btn:hover {
+            background: #9adda0;
+        }
+
+
+        .connector-tabs {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-right: 8px;
+        }
+
+        .connector-tab {
+            background: #dae7db;
+            border: 1px solid #004a99;
+            border-radius: 6px;
+            padding: 8px 10px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 2px;
+            transition: background 0.25s;
+        }
+
+        .connector-tab.active,
+        .connector-tab:focus {
+            background: #4CAF50;
+            color: white;
+            outline: none;
+        }
+
+        .connector-details-frame {
+            padding: 8px 0;
+            font-size: 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 45% 54%;
+            gap: 12px;
+            margin-bottom: 12px;
+            margin-left: 0.1px;
+        }
+
+        .gridKnowledge {
+            display: grid;
+            /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  */
+            gap: 12px;
+            margin-bottom: 12px;
+            margin-left: 0.1px;
+        }
+
+        .card {
+            background: #d5e7d8;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+            padding: 18px 22px;
+            min-width: 0;
+        }
+    </style>
+</head>
+
+
+
+<body>
+
+    <div id="top-links" class="links-grid">
+        <a href="https://pbapps.atlassian.net/jira/software/c/projects/OMS/boards/17239" target="_blank"
+            class="link-btn">OMS Board</a>
+        <a href="https://spa-ui-qa.sendpro360.pitneycloud.com/" target="_blank" class="link-btn">QA ShipAccel</a>
+        <a href="https://spa-ui-dev.sendpro360.pitneycloud.com/" target="_blank" class="link-btn">DEV ShipAccel</a>
+        <a href="https://shipaccel-ppd.sendpro360.pitneybowes.com/" target="_blank" class="link-btn">PPD ShipAccel</a>
+        <a href="https://app-ca-ppd.shipping360.pitneybowes.com/" target="_blank" class="link-btn">PPD CA ShipAccel</a>
+        <a href="https://shipaccel.pitneybowes.com/" target="_blank" class="link-btn">PROD ShipAccel</a>
+
+        <a href="https://signup-qa.sendpro360.pitneycloud.com/?theme=shipaccel&productId=shipAccel&itemId=SHIPACCEL_PREMIER&billingFrequency=Monthly&currency=USD"
+            target="_blank" class="link-btn">QA Signup</a>
+            <a href="https://signup-ppd.sendpro360.pitneybowes.com/?theme=shipaccel&productId=shipAccel&itemId=SHIPACCEL_PREMIER&billingFrequency=Monthly&currency=USD"
+            target="_blank" class="link-btn">Pre-Prod Signup</a>
+            <a href="https://signup.sendpro360.pitneybowes.com/?theme=shipaccel&productId=shipAccel&itemId=SHIPACCEL_PREMIER&billingFrequency=Monthly&currency=USD"
+            target="_blank" class="link-btn">Prod Signup</a>
+
+        <a href="https://pitneybowes.testrail.io/index.php?/projects/overview/41" target="_blank"
+            class="link-btn">TestRail Repo</a>
+        <a href="https://www.myworkday.com/pitneybowes/d/pex/home.htmld" target="_blank" class="link-btn">My Workday</a>
+        <a href="https://pb-it.atlassian.net/servicedesk/customer/" target="_blank" class="link-btn">HelpDesk</a>
+        <a href="https://cloud.mongodb.com/v2/5f6a1606453409269d469038#/explorer/5f6cf3be898dcd5f44446b10/ppd-order-management/order/find" target="_blank" class="link-btn">MongoDB Pre-Prod</a>
+        <a href="https://iam.pb.com/IM/page.axd" target="_blank" class="link-btn">IAM Portal</a>
+    </div><br />
+
+
+    <div class="grid">
+        <!-- ===== LEFT: ALL USERS IN ONE CARD ===== -->
+        <div class="card">
+            <div class="item">
+                <strong>OMS</strong>
+                <span class="copy-text" onclick="copyText(this)">shipaccelnewgrid.qa_oms6.21@yopmail.com</span>
+                |
+                <span class="copy-text" onclick="copyText(this)">Horizon#1234</span>
+            </div>
+            <div class="item">
+                <strong>NON‑OMS</strong>
+                <span class="copy-text" onclick="copyText(this)">shipaccelnewgrid.qa_oms5.21@yopmail.com</span>
+                |
+                <span class="copy-text" onclick="copyText(this)">Horizon#1234</span>
+            </div>
+            <div class="item">
+                <strong>POSTMAN</strong>
+                <span class="copy-text" onclick="copyText(this)">MS_0201_QA3@yopmail.com</span>
+                |
+                <span class="copy-text" onclick="copyText(this)">Pitney@12345</span>
+            </div>
+             <div class="item">
+                <strong>Shopify Conn</strong>
+                <span class="copy-text" onclick="copyText(this)">testshipAccelM@yopmail.com</span>
+                |
+                <span class="copy-text" onclick="copyText(this)">IshikaM2013@</span>
+            </div>
+            <div class="item">
+                <strong>PPD</strong>
+                <span class="copy-text" onclick="copyText(this)">OMSTesting05Jan03@yopmail.com</span>
+                |
+                <span class="copy-text" onclick="copyText(this)">Pitney@12345</span>
+            </div>
+            <div class="item">
+                <strong>PROD</strong>
+                <span class="copy-text" onclick="copyText(this)">vivek.kumar2@pb.com</span>
+                |
+                <span class="copy-text" onclick="copyText(this)">Quality@3210</span>
+            </div>
+            <div class="item">
+                <strong>DEV</strong>
+                <span class="copy-text" onclick="copyText(this)">ShipAccel_Ent_SinglePayer_User1@yopmail.com</span>
+                |
+                <span class="copy-text" onclick="copyText(this)">Horizon#123</span>
+            </div>
+            
+            <div class="item">
+                <strong>Enterprise</strong>
+                <span class="copy-text" onclick="copyText(this)">ShipAccel_Ent_SinglePayer_User1@yopmail.com</span>
+                |
+                <span class="copy-text" onclick="copyText(this)">Horizon#123</span>
+            </div>
+
+            <div class="item">
+                <strong>MCPM US</strong>
+                <span class="copy-text" onclick="copyText(this)">mcpm_us_orderapi@yopmail.com</span>
+                |
+                <span class="copy-text" onclick="copyText(this)">Horizon#123</span>
+            </div>
+        </div>
+
+        <!-- ===== RIGHT: CONNECTORS ===== -->
+        <div class="card">
+            <div style="display:flex; gap:16px; height:100%">
+                <!-- Tabs -->
+                <div class="connector-tabs">
+                    <button class="connector-tab" onclick="showConnector('wix')">WIX</button>
+                    <button class="connector-tab" onclick="showConnector('shopify')">Shopify</button>
+                    <button class="connector-tab" onclick="showConnector('bigc')">Big Commerce</button>
+                    <button class="connector-tab" onclick="showConnector('quickbook')">QuickBook</button>
+                    <button class="connector-tab" onclick="showConnector('netSuite')">NetSuite</button>
+                </div>
+                <!-- Details -->
+                <div style="flex:1;">
+                    <div id="wix-details" class="connector-details-frame" style="display:none">
+                        <span class="copy-text"><a
+                                href="https://manage.wix.com/dashboard/5ca6c791-62d6-48b3-b563-f2741a005db5/ecom-platform/orders-list?referralInfo=sidebar&sort=createdDate+desc&selectedColumns=number%2CcreatedDate%2CcustomerName%2CpaymentStatus%2CfulfillmentStatus%2Ctotal%2ChasReceipt+false%2CitemQuantity%2CaggregatedBusinessLocationName+false%2ClocationNames+false%2CchannelInfo.externalOrderId+false%2CtotalAdditionalFees+false%2CattributionSource+false%2CchannelInfo.type+false%2CfulfillmentService+false%2CestimatedDeliveryTime+false%2CdeliveryMethod+false%2CshippingAddress+false%2CexternalFulfillments.trackingInfo.trackingNumber+false%2Ctags"
+                                target="_blank">WIX Link</a></span><br />
+                        <span class="copy-text" onclick="copyText(this)">sandeep.shiralkar123@yopmail.com</span> | <span
+                            class="copy-text" onclick="copyText(this)">Pitney@1234</span><br>
+                        <span class="copy-text" onclick="copyText(this)">ecomstore@pb.com</span> | <span
+                            class="copy-text" onclick="copyText(this)">Pitney@123</span>
+                    </div>
+                    <div id="shopify-details" class="connector-details-frame" style="display:none">
+                        <span class="copy-text"><a href="https://admin.shopify.com/store/ecomqatest25/orders"
+                                target="_blank">Shopify Link</a></span><br>
+                        <span class="copy-text" onclick="copyText(this)">2111koro7@gmail.com</span> | <span
+                            class="copy-text" onclick="copyText(this)">Horizon#123</span>
+                    </div>
+                    <div id="bigc-details" class="connector-details-frame" style="display:none">
+                        <span class="copy-text"><a href="https://store-9ayd0ruu3a.mybigcommerce.com/manage/orders"
+                                target="_blank">Bigcommerce Link</a></span><br>
+                        <span class="copy-text" onclick="copyText(this)">shivamsanjay.desale@pb.com</span> | <span
+                            class="copy-text" onclick="copyText(this)">Pitney@123456789</span>
+                        <br><br>
+                        
+                        <div>
+                            <span class="copy-text" id="bigc-storeHash" onclick="copyText(this)" data-copy="9ayd0ruu3a"><strong>Store Hash</strong></span>
+                            <span class="copy-text" id="bigc-accessToken" onclick="copyText(this)" data-copy="13h1jzvvb0yzcjiwyaudzs9bfn41htl"><strong>Access Token</strong></span>
+                        </div>
+                    </div>
+                    <div id="quickbook-details" class="connector-details-frame" style="display:none;">
+                        <span class="copy-text"><a href="https://sandbox.qbo.intuit.com/app/sales"
+                                target="_blank">QuickBook Link</a></span><br>
+                        <span class="copy-text" onclick="copyText(this)">ambuj.singh@pb.com</span> | <span
+                            class="copy-text" onclick="copyText(this)">Pitney@12345</span>
+                        <br><br>
+                        <div><span class="copy-text" id="quickbook-clientId" onclick="copyText(this)"
+                                data-copy="ABUbnzYP3HH3g4yTEbpGSLiD5LhzXZqHF1x4jDVXqoZJ6eIhct"><strong>Client
+                                    ID</strong></span>
+                        
+
+                        <span class="copy-text" id="quickbook-clientSecret" onclick="copyText(this)"
+                                data-copy="Rlv6BYTgwCaRpdIbW25F8fE6s4IsFbW2jbH2Oacd"><strong>Client Secret</strong>
+                                </spans>
+                        </div>
+                    </div>
+                    <div id="netSuite-details" class="connector-details-frame" style="display:none;">
+                        <span class="copy-text"><a href="https://td2917644.app.netsuite.com/" target="_blank">NetSuite
+                                Link</a></span> |
+                        <span class="copy-text" onclick="copyText(this)">ambuj.singh@pb.com</span> | <span
+                            class="copy-text" onclick="copyText(this)">Pitney@12345</span>
+                        <br><br>
+                        
+                        <div>
+                          <span class="copy-text" id="netsuite-consumerKey" onclick="copyText(this)" data-copy="537e0163c5cf626ee4bb9821746487db541a748ef4556dbc7297f1cc4b568e6e"><strong>Consumer Key</strong></span>
+                          <span class="copy-text" id="netsuite-consumerSecret" onclick="copyText(this)" data-copy="671a34083e5ca89f0bc9f9b971041ceda4626c01eb976bb0abcf18d1dd2e4905"><strong>Consumer Secret</strong></span>
+                          <span class="copy-text" id="netsuite-tokenId" onclick="copyText(this)" data-copy="b1e06553d58ac72a9f8e5feb62494ee843519e267e02b0a317dd54342fb8f284"><strong>Token ID</strong></span>
+                          <span class="copy-text" id="netsuite-tokenSecret" onclick="copyText(this)" data-copy="96a6efe117b29cc52ed476dc82bcd4a72fe939eb895b2718fb2fab3087ef3bd8"><strong>Token Secret</strong></span>
+                          <span class="copy-text" id="netsuite-companyUrl" onclick="copyText(this)" data-copy="https://td2917644.suitetalk.api.netsuite.com"><strong>Company URL</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <br />
+    <div class="gridKnowledge">
+
+        <div class="card" style="padding:0;">
+            <button id="knowledgeBookBtn"
+                style="letter-spacing: 3px;width:100%;background:#4CAF50;color:white;padding:14px 0;font-size:17px;font-weight:bold;border:none;border-radius:12px 12px 0 0;cursor:pointer;outline:none;display:flex;align-items:center;justify-content:center;gap:10px;">
+                <span id="kb-arrow" style="transition:transform 0.2s;display:inline-block;">&#9654;</span>
+                OMS KNOWLEDGE BOOK
+            </button>
+
+
+            <div id="knowledgeBookContent"
+                style="min-height: 400px;display:none;padding:18px 0px 18px 22px;background:#d5e7d8;border-radius:0 0 12px 12px;">
+                <div style="display:flex; gap:16px; height:100%">
+                    <!-- Tabs -->
+
+                    <div class="connector-tabs">
+                        <button class="connector-tab kb-tab" onclick="showKBTab('ppd-cred')">PPD Credentials</button>
+                        <button class="connector-tab kb-tab" onclick="showKBTab('dm-job')">Running DM Job</button>
+                        <button class="connector-tab kb-tab" onclick="showKBTab('mongo')">Mongo DB
+                            ConnectionString</button>
+                        <button class="connector-tab kb-tab" onclick="showKBTab('no-split-connector')">Unsupported
+                            Connectors for Split</button>
+                        <button class="connector-tab kb-tab" onclick="showKBTab('adhoc')">Important Adhoc Info</button>
+                    </div>
+
+                    <!-- Details -->
+                    <div style="flex:1;">
+                        <div id="ppd-cred" class="connector-details-frame kb-details-frame" style="display:none;">
+                            <strong>MCPM CA</strong>
+                            <span class="copy-text" onclick="copyText(this)">mcpm_ca_orderapi@yopmail.com</span>
+                            |
+                            <span class="copy-text" onclick="copyText(this)">Horizon#123</span>
+
+                            <span class="copy-text" onclick="copyText(this)" data-copy="0oa2mqqtwy2kSv1wi0h8"
+                                style="font-weight: bold;">Client ID</span>
+
+                            <span class="copy-text" onclick="copyText(this)"
+                                data-copy="EusY5w06mIFj8FJhs0cxl_cC_LmpOC7XuwFdQsiQhyEZnqmbxH1qfoU00eWcX6hn"
+                                style="font-weight: bold;">Client Secret</span>
+                            <br /><br />
+                            <strong>BaseURL -- MCPM-CA</strong>
+                            <span class="copy-text"
+                                onclick="copyText(this)">https://api-ppd.shipping360.pitneybowes.com/ca</span>
+
+                        </div>
+
+                        <div id="dm-job" class="connector-details-frame kb-details-frame"
+                            style="display:none; line-height: 25px;">
+
+                            <ol>
+                                <li>Signup a new user on QA; by default this user is non-OMS, which is required here
+                                </li>
+                                <li>Optional to integrate any connector</li>
+                                <li>File upload some orders, as these orders are only in V3 and not in OMS</li>
+                                <li>Get the subID</li>
+                                <li>Make transition of status to all different types of status</li>
+                                <li>Check the count of records in V3 and OMS before migration</li>
+                                <li>Keep a screenshot to verify post migration</li>
+                                <li>Run Migrate Job<ol>
+                                        <li>Just update the subscription ID</li>
+                                        <li>Make To Date = tomorrow so that time zone difference does not miss any
+                                            record</li>
+                                        <li>Create an MR</li>
+                                        <li>Request DevOps to execute the pipeline</li>
+                                    </ol>
+                                </li>
+                                <li>Check entries in OMS table and tally them with V3 table (keep
+                                    <code>{archive: false}</code>, as archive = deleted)
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div id="mongo" class="connector-details-frame kb-details-frame" style="display:none;">
+                            <span class="copy-text"
+                                onclick="copyText(this)">mongodb+srv://sp360user-dev:RVL2kRUlZa23uc1w@sp360-commercial-global.bx3ql.mongodb.net/admin?authSource=admin&replicaSet=atlas-6dgy6p-shard-0&readPreference=primary&ssl=true
+                            </span>
+                        </div>
+
+                        <div id="no-split-connector" class="connector-details-frame kb-details-frame"
+                            style="display:none; line-height: 25px;">
+                            Not Supported E-comm connector for SPLIT Order :-
+                            <ol>
+                                <li>Walmart</li>
+                                <li>Etsy</li>
+                                <li>Netsuite</li>
+                                <li>Revolution Parts (likely do not support based on implementation)</li>
+                                <li>QuickBooks</li>
+                                <li>MS Dynamics</li>
+                                <li>Yogacars (Not in ShipAccel)</li>
+                                <li>BC Dynamics (Not in ShipAccel)</li>
+                                <li>Squarespace</li>
+
+                            </ol>
+                        </div>
+
+                        <div id="adhoc" class="connector-details-frame kb-details-frame"
+                            style="display:none; line-height: 25px;">
+                            <ul>
+                                <li>To check OMS / NON‑OMS → Inspect features → spa-enable-oms-api-integration</li>
+                                <li>To check subscription ID → Inspect user → subID</li>
+                                <li>To check order ID → Inspect search → orderId</li>
+                                <li>To check the details of a JSON token → Go to jwt.io → Paste the token, you can check subID</li>
+                                <li>For an order update, we always use partial update PATCH api, with it only we can update full body or a part of it</li>
+                                <li>Only the fulfilled OrderBatchNAme can be updated not any other status like shipped or fulfiled</li>
+                                <li>When we connect a connector like Wix, it fetches only unfulfilled orders from the last 90 days.</li>
+                            </ul>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- Inlined JS: script.js -->
+    <script>
+        // Knowledge Book tab logic (show/hide details and highlight tab)
+        window.showKBTab = function (tabId) {
+            const ids = ['ppd-cred', 'dm-job', 'mongo', 'no-split-connector', 'adhoc'];
+            ids.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = (id === tabId) ? '' : 'none';
+            });
+            // Highlight active tab
+            const tabs = document.querySelectorAll('.kb-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                tab.setAttribute('aria-selected', 'false');
+            });
+            const activeTab = Array.from(tabs).find(tab => tab.innerText.replace(/ /g, '').toLowerCase() === tabId.replace('kb-', ''));
+            if (activeTab) {
+                activeTab.classList.add('active');
+                activeTab.setAttribute('aria-selected', 'true');
+            }
+        };
+        // Show first KB tab by default when expanded
+        document.addEventListener("DOMContentLoaded", function () {
+            var kbContent = document.getElementById("knowledgeBookContent");
+            if (kbContent) {
+                var observer = new MutationObserver(function (mutations) {
+                    mutations.forEach(function (mutation) {
+                        if (mutation.attributeName === 'style' && kbContent.style.display !== 'none') {
+                            window.showKBTab('kb-wix');
+                        }
+                    });
+                });
+                observer.observe(kbContent, { attributes: true });
+            }
+        });
+        // Collapsible Knowledge Book logic
+        document.addEventListener("DOMContentLoaded", function () {
+            var btn = document.getElementById("knowledgeBookBtn");
+            var content = document.getElementById("knowledgeBookContent");
+            var arrow = document.getElementById("kb-arrow");
+            if (btn && content && arrow) {
+                btn.addEventListener("click", function () {
+                    var isCollapsed = content.style.display === "none";
+                    content.style.display = isCollapsed ? "block" : "none";
+                    arrow.style.transform = isCollapsed ? "rotate(90deg)" : "rotate(0deg)";
+                });
+                // Ensure collapsed by default
+                content.style.display = "none";
+                arrow.style.transform = "rotate(0deg)";
+            }
+        });
+
+        let lastSelectedCopy = null;
+        function copyText(el) {
+            const text = el.getAttribute('data-copy') || el.value || el.innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                // Remove highlight from previous
+                if (lastSelectedCopy && lastSelectedCopy !== el) {
+                    lastSelectedCopy.classList.remove("selected");
+                }
+                el.classList.add("selected");
+                lastSelectedCopy = el;
+                // Optional: show a quick feedback flash
+                el.classList.add("copied");
+                setTimeout(() => el.classList.remove("copied"), 800);
+            });
+        }
+
+        // Connector tab logic (show/hide details and highlight tab)
+        window.showConnector = function (connector) {
+            const ids = ['wix', 'shopify', 'bigc', 'quickbook', 'netSuite'];
+            ids.forEach(id => {
+                const el = document.getElementById(id + '-details');
+                el.style.display = (id === connector) ? '' : 'none';
+            });
+            // Highlight active tab
+            const tabs = document.querySelectorAll('.connector-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                tab.setAttribute('aria-selected', 'false');
+            });
+            const activeTab = Array.from(tabs).find(tab => tab.innerText.toLowerCase() === connector.toLowerCase() || tab.innerText.replace(/ /g, '').toLowerCase() === connector.toLowerCase());
+            if (activeTab) {
+                activeTab.classList.add('active');
+                activeTab.setAttribute('aria-selected', 'true');
+            }
+        };
+        // Optionally, show the first connector by default
+        document.addEventListener("DOMContentLoaded", () => {
+            window.showConnector('wix');
+        });
+    </script>
+
+</body>
+
+</html>
