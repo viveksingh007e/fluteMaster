@@ -355,8 +355,9 @@
                             <strong>PROD - CA URL</strong>
                             <span class="copy-text"
                                 onclick="copyText(this)">https://app-ca.shipping360.pitneybowes.com/fulfillment</span><br /><br />
-                            <strong>POC: -</strong>    
-                            <span>API as product - Sandeep/Ankush | MCPM - Ankur/Narendra | File Integration - Ekta/Rahul</span>
+                            <strong>POC: -</strong>
+                            <span>API as product - Sandeep/Ankush | MCPM - Ankur/Narendra | File Integration -
+                                Ekta/Rahul</span>
                         </div>
 
                         <div id="ppd-cred" class="connector-details-frame kb-details-frame" style="display:none;">
@@ -397,16 +398,43 @@
                                 <li>Check the count of records in V3 and OMS before migration</li>
                                 <li>Keep a screenshot to verify post migration</li>
                                 <li>Run Migrate Job<ol>
+                                        <li>pitneybowes --> avatarinnovation --> avatarsendtech --> sendpro-commercial
+                                            --> config --> production --> k8s-prd-apps-config --> Repository</li>
+                                        <li>
+                                            go to Code --> Repository --> In Folder oms-data-migration-job --> Overlays
+                                            --> SP360 PPD (Common and IAD, both has patchStartegicMerge.yaml)
+                                        </li>
                                         <li>Just update the subscription ID</li>
                                         <li>Make To Date = tomorrow so that time zone difference does not miss any
                                             record</li>
                                         <li>Create an MR</li>
+                                        <li>use this to add comment "feature/JIRA-OMS-354_Update"</li>
+                                        <li>Assignee Pragya, Approver - Jitesh</li>
+                                        <li>Create a JIRA and include that MR - get it approved from the team/Pragya
+                                        </li>
                                         <li>Request DevOps to execute the pipeline</li>
                                     </ol>
                                 </li>
                                 <li>Check entries in OMS table and tally them with V3 table (keep
                                     <code>{archive: false}</code>, as archive = deleted)
                                 </li>
+                                <li>to update an entry in v3 on ppd, we need to share this code with Atul Yadav <br />
+                                    db.getCollection("shipment-batch-v3").updateMany(
+                                    { "orderInfo.orderID":"PB6a1e853135240cb71f24c7a5",subId:'zWA5Pj57DWGn'},
+                                    {
+                                    $set: {
+                                    transactionCreateDate:
+                                    "2026-01-01T18:02:08.000+00:00",
+                                    transactionImportDate:
+                                    "2026-01-01T18:02:14.418+00:00"
+                                    }
+                                    }
+                                    )
+                                </li>
+                                <li>A sample MR raised previously:- <br />
+                                    <a href="https://gitlab.com/pitneybowes/innovation/sendtech/sendpro-commercial/config/production/k8s-prd-apps-config/-/merge_requests/3932" target="_blank"> Link of an MR</a>
+                                </li>
+
                             </ol>
                         </div>
 
