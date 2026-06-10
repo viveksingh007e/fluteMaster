@@ -492,9 +492,13 @@
                             style="display:none; line-height: 25px;">
                             <ul>
                                 <li>
-                                    <a href="https://gitlab.com/pitneybowes/innovation/sendtech/sendproanywhere/apps/services/digital-commerce-services/services/oms-order-management/-/blob/sp360comm/dev/swagger.yaml?ref_type=heads" targer="_blank">Swagger for Sanity Automation</a>
+                                    <a href="https://gitlab.com/pitneybowes/innovation/sendtech/sendproanywhere/apps/services/digital-commerce-services/services/oms-order-management/-/blob/sp360comm/dev/swagger.yaml?ref_type=heads"
+                                        target="_blank">Swagger for Sanity Automation</a>
                                 </li>
-                                
+                                <li>
+                                    <a href="https://docs.shipping360.pitneybowes.com/openapi/ordermanagement/order/createorder"
+                                        target="_blank">API 360 Documentation</a>
+                                </li>
 
 
                             </ul>
@@ -515,7 +519,7 @@
     <script>
         // Knowledge Book tab logic (show/hide details and highlight tab)
         window.showKBTab = function (tabId) {
-            const ids = ['prod-cred', 'ppd-cred', 'dm-job', 'mongo', 'no-split-connector', 'adhoc','imp-links'];
+            const ids = ['prod-cred', 'ppd-cred', 'dm-job', 'mongo', 'no-split-connector', 'adhoc', 'imp-links'];
             ids.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.style.display = (id === tabId) ? '' : 'none';
