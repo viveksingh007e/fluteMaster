@@ -65,6 +65,26 @@
             background: #9adda0;
         }
 
+        .link-btn.shipaccel-link {
+            background: #edfa95;
+            border-color: #b36b00;
+            color: #5a2f00;
+        }
+
+        .link-btn.shipaccel-link:hover {
+            background: #e0f45b;
+        }
+
+        .link-btn.signup-link {
+            background: #dcaceb;
+            border-color: #d57df0;
+            color: #0d2b4d;
+        }
+
+        .link-btn.signup-link:hover {
+            background: #d57df0;
+        }
+
 
         .connector-tabs {
             display: flex;
@@ -130,18 +150,20 @@
     <div id="top-links" class="links-grid">
         <a href="https://pbapps.atlassian.net/jira/software/c/projects/OMS/boards/17239" target="_blank"
             class="link-btn">OMS Board</a>
-        <a href="https://spa-ui-qa.sendpro360.pitneycloud.com/" target="_blank" class="link-btn">QA ShipAccel</a>
-        <a href="https://spa-ui-dev.sendpro360.pitneycloud.com/" target="_blank" class="link-btn">DEV ShipAccel</a>
-        <a href="https://shipaccel-ppd.sendpro360.pitneybowes.com/" target="_blank" class="link-btn">PPD ShipAccel</a>
-        <a href="https://app-ca-ppd.shipping360.pitneybowes.com/" target="_blank" class="link-btn">PPD CA ShipAccel</a>
-        <a href="https://shipaccel.pitneybowes.com/" target="_blank" class="link-btn">PROD ShipAccel</a>
-        <a href="https://app-pdx.sendpro360.pitneybowes.com/" target="_blank" class="link-btn">PDX ShipAccel</a>
+        <a class="link-btn shipaccel-link" style="text-decoration: none;border-radius:100px">ShipAccel >> </a>    
+        <a href="https://spa-ui-qa.sendpro360.pitneycloud.com/" target="_blank" class="link-btn shipaccel-link">QA</a>
+        <a href="https://spa-ui-dev.sendpro360.pitneycloud.com/" target="_blank" class="link-btn shipaccel-link">DEV</a>
+        <a href="https://shipaccel-ppd.sendpro360.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">PPD</a>
+        <a href="https://app-ca-ppd.shipping360.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">PPD CA</a>
+        <a href="https://shipaccel.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">PROD</a>
+        <a href="https://app-pdx.sendpro360.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">PDX</a>
+        <a class="link-btn signup-link" style="text-decoration: none;border-radius:100px">SignUp >> </a>  
         <a href="https://signup-qa.sendpro360.pitneycloud.com/?theme=shipaccel&productId=shipAccel&itemId=SHIPACCEL_PREMIER&billingFrequency=Monthly&currency=USD"
-            target="_blank" class="link-btn">QA Signup</a>
+            target="_blank" class="link-btn signup-link">QA</a>
         <a href="https://signup-ppd.sendpro360.pitneybowes.com/?theme=shipaccel&productId=shipAccel&itemId=SHIPACCEL_PREMIER&billingFrequency=Monthly&currency=USD"
-            target="_blank" class="link-btn">Pre-Prod Signup</a>
+            target="_blank" class="link-btn signup-link">Pre-Prod</a>
         <a href="https://signup.sendpro360.pitneybowes.com/?theme=shipaccel&productId=shipAccel&itemId=SHIPACCEL_PREMIER&billingFrequency=Monthly&currency=USD"
-            target="_blank" class="link-btn">Prod Signup</a>
+            target="_blank" class="link-btn signup-link">Prod</a>
 
         <a href="https://pitneybowes.testrail.io/index.php?/projects/overview/41" target="_blank"
             class="link-btn">TestRail Repo</a>
