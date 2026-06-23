@@ -152,14 +152,16 @@
     <div id="top-links" class="links-grid">
         <a href="https://pbapps.atlassian.net/jira/software/c/projects/OMS/boards/17239" target="_blank"
             class="link-btn">OMS Board</a>
-        <a class="link-btn shipaccel-link" style="text-decoration: none;border-radius:100px">ShipAccel >> </a>    
+        <a class="link-btn shipaccel-link" style="text-decoration: none;border-radius:100px">ShipAccel >> </a>
         <a href="https://spa-ui-qa.sendpro360.pitneycloud.com/" target="_blank" class="link-btn shipaccel-link">QA</a>
         <a href="https://spa-ui-dev.sendpro360.pitneycloud.com/" target="_blank" class="link-btn shipaccel-link">DEV</a>
-        <a href="https://shipaccel-ppd.sendpro360.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">PPD</a>
+        <a href="https://shipaccel-ppd.sendpro360.pitneybowes.com/" target="_blank"
+            class="link-btn shipaccel-link">PPD</a>
         <a href="https://app-ca-ppd.shipping360.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">PPD CA</a>
+        <a href="https://app-ppd-pdx.sendpro360.pitneybowes.com/orders" target="_blank" class="link-btn shipaccel-link">PPD PDX</a>
         <a href="https://shipaccel.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">PROD</a>
         <a href="https://app-pdx.sendpro360.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">PDX</a>
-        <a class="link-btn signup-link" style="text-decoration: none;border-radius:100px">SignUp >> </a>  
+        <a class="link-btn signup-link" style="text-decoration: none;border-radius:100px">SignUp >> </a>
         <a href="https://signup-qa.sendpro360.pitneycloud.com/?theme=shipaccel&productId=shipAccel&itemId=SHIPACCEL_PREMIER&billingFrequency=Monthly&currency=USD"
             target="_blank" class="link-btn signup-link">QA</a>
         <a href="https://signup-ppd.sendpro360.pitneybowes.com/?theme=shipaccel&productId=shipAccel&itemId=SHIPACCEL_PREMIER&billingFrequency=Monthly&currency=USD"
@@ -264,6 +266,7 @@
                     <button class="connector-tab" onclick="showConnector('bigc')">Big Commerce</button>
                     <button class="connector-tab" onclick="showConnector('quickbook')">QuickBook</button>
                     <button class="connector-tab" onclick="showConnector('netSuite')">NetSuite</button>
+                    <button class="connector-tab" onclick="showConnector('revolutionParts')">Revolution Parts</button>
                 </div>
                 <!-- Details -->
                 <div style="flex:1;">
@@ -337,6 +340,14 @@
                                     URL</strong></span>
                         </div>
                     </div>
+                    <div id="revolutionParts-details" class="connector-details-frame" style="display:none;">
+                      
+                        <span class="copy-text" onclick="copyText(this)">RP-927befb1a803</span> | <span
+                            class="copy-text" onclick="copyText(this)">ded1a42eedf7871f</span>
+                        <br><br>
+
+                       
+                    </div>
                 </div>
             </div>
         </div>
@@ -361,7 +372,7 @@
 
                     <div class="connector-tabs">
                         <button class="connector-tab kb-tab" onclick="showKBTab('prod-cred')">PROD Credentials</button>
-                        <button class="connector-tab kb-tab" onclick="showKBTab('ppd-cred')">PPD Credentials</button>
+                        <button class="connector-tab kb-tab" onclick="showKBTab('ppd-cred')">PPD/MCPM Credentials</button>
                         <button class="connector-tab kb-tab" onclick="showKBTab('dm-job')">Running DM Job</button>
                         <button class="connector-tab kb-tab" onclick="showKBTab('mongo')">Mongo DB
                             ConnectionString</button>
@@ -416,14 +427,20 @@
                                 style="font-weight: bold;">Client Secret</span>
                             <br /><br />
 
-                            <strong>BaseURL -- MCPM-CA</strong>
+                            <strong>BaseURL -- PPD -- MCPM-CA</strong>
                             <span class="copy-text"
                                 onclick="copyText(this)">https://api-ppd.shipping360.pitneybowes.com/ca</span>
+
                             <br /><br />
 
-                            <strong>PPD - CA URL</strong>
+                            <strong>BaseURL -- PPD -- MCPM-US</strong>
                             <span class="copy-text"
-                                onclick="copyText(this)">https://app-ca-ppd.shipping360.pitneybowes.com/</span>
+                                onclick="copyText(this)">https://api-sandbox.sendpro360.pitneybowes.com</span>
+                            <br /><br />
+
+                            <strong>BaseURL -- QA -- MCPM-CA</strong>
+                            <span class="copy-text"
+                                onclick="copyText(this)">https://api-qa.sendpro360.pitneycloud.com</span>
 
                         </div>
 
@@ -619,7 +636,7 @@
 
         // Connector tab logic (show/hide details and highlight tab)
         window.showConnector = function (connector) {
-            const ids = ['wix', 'shopify', 'bigc', 'quickbook', 'netSuite'];
+            const ids = ['wix', 'shopify', 'bigc', 'quickbook', 'netSuite', 'revolutionParts'];
             ids.forEach(id => {
                 const el = document.getElementById(id + '-details');
                 el.style.display = (id === connector) ? '' : 'none';
