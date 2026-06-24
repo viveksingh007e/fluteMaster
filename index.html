@@ -157,8 +157,10 @@
         <a href="https://spa-ui-dev.sendpro360.pitneycloud.com/" target="_blank" class="link-btn shipaccel-link">DEV</a>
         <a href="https://shipaccel-ppd.sendpro360.pitneybowes.com/" target="_blank"
             class="link-btn shipaccel-link">PPD</a>
-        <a href="https://app-ca-ppd.shipping360.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">PPD CA</a>
-        <a href="https://app-ppd-pdx.sendpro360.pitneybowes.com/orders" target="_blank" class="link-btn shipaccel-link">PPD PDX</a>
+        <a href="https://app-ca-ppd.shipping360.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">PPD
+            CA</a>
+        <a href="https://app-ppd-pdx.sendpro360.pitneybowes.com/orders" target="_blank"
+            class="link-btn shipaccel-link">PPD PDX</a>
         <a href="https://shipaccel.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">PROD</a>
         <a href="https://app-pdx.sendpro360.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">PDX</a>
         <a class="link-btn signup-link" style="text-decoration: none;border-radius:100px">SignUp >> </a>
@@ -341,12 +343,12 @@
                         </div>
                     </div>
                     <div id="revolutionParts-details" class="connector-details-frame" style="display:none;">
-                      
+
                         <span class="copy-text" onclick="copyText(this)">RP-927befb1a803</span> | <span
                             class="copy-text" onclick="copyText(this)">ded1a42eedf7871f</span>
                         <br><br>
 
-                       
+
                     </div>
                 </div>
             </div>
@@ -372,10 +374,10 @@
 
                     <div class="connector-tabs">
                         <button class="connector-tab kb-tab" onclick="showKBTab('prod-cred')">PROD Credentials</button>
-                        <button class="connector-tab kb-tab" onclick="showKBTab('ppd-cred')">PPD/MCPM Credentials</button>
+                        <button class="connector-tab kb-tab" onclick="showKBTab('ppd-cred')">PPD/MCPM
+                            Credentials</button>
                         <button class="connector-tab kb-tab" onclick="showKBTab('dm-job')">Running DM Job</button>
-                        <button class="connector-tab kb-tab" onclick="showKBTab('mongo')">Mongo DB
-                            ConnectionString</button>
+                        <button class="connector-tab kb-tab" onclick="showKBTab('mongo')">SUMO / Mongo DB</button>
                         <button class="connector-tab kb-tab" onclick="showKBTab('no-split-connector')">Unsupported
                             Connectors for Split</button>
                         <button class="connector-tab kb-tab" onclick="showKBTab('adhoc')">Important Adhoc Info</button>
@@ -499,9 +501,47 @@
                         </div>
 
                         <div id="mongo" class="connector-details-frame kb-details-frame" style="display:none;">
+                            <b>Mongo DB Connection String: </b>
                             <span class="copy-text"
                                 onclick="copyText(this)">mongodb+srv://sp360user-dev:RVL2kRUlZa23uc1w@sp360-commercial-global.bx3ql.mongodb.net/admin?authSource=admin&replicaSet=atlas-6dgy6p-shard-0&readPreference=primary&ssl=true
-                            </span>
+                            </span><br /> <br />
+                            <ul>
+                                <li>
+                                    <a href="https://myapps.microsoft.com/signin/Sumologic-PBI/85c00534-f30d-464b-973e-feddac71504d?tenantId=8a4925a9-fd8e-4866-b31c-f719fb05dce6"
+                                        target="_blank">Sumo Logic PBI [QA]</a>
+                                </li>
+
+                                <span class="copy-text" onclick="copyText(this)">(_index=STS_QA)
+                                    | where (deployment matches "*oms-indexer*")
+                                    | where _raw matches "*VpebGJM3UviRBMjDuogJu*"
+                                </span><br />
+                                <span class="copy-text" onclick="copyText(this)">(_index=STS_DEV)
+                                    | where (deployment matches "*oms-order-m*")
+                                    | where _raw matches "*VpebGJM3UviRBMjDuogJu*"
+                                </span><br />
+                                <span class="copy-text" onclick="copyText(this)">(_index=STS_QA)
+                                    | where (deployment matches "*ecomm-service-d*")
+                                    | where _raw matches "*akfoHunlGiK9JQycKdp2G*"
+                                </span><br /><br />
+
+                                <li>
+                                    <a href="https://myapps.microsoft.com/signin/Sumologics-PGPSG/ede4a097-11c8-4d8a-894a-7491d7c50ace?tenantId=8a4925a9-fd8e-4866-b31c-f719fb05dce6"
+                                        target="_blank">Sumo Logic PBSG [PROD]</a>
+                                </li>
+                                <span class="copy-text" onclick="copyText(this)">(_collector=sp360*prd* OR
+                                    _index="STS_PROD_Continuous" OR _index="STS_Prod_Commercial")
+                                    | where deployment matches "*ecomm*"
+                                    | where _raw matches "*r7YgUIve0kxil0SKm7H7t*"
+                                </span><br />
+                                <span class="copy-text" onclick="copyText(this)">_index="STS_PROD_Lambda" and
+                                    _sourcecategory="/aws/lambda/sp360-oms-order-writeback-event-lambda-prd-pdx-lambda-fn"
+                                    and "*7792105160894*"
+                                </span><br />
+
+                            </ul>
+
+
+
                         </div>
 
                         <div id="no-split-connector" class="connector-details-frame kb-details-frame"
@@ -550,6 +590,7 @@
                                     <a href="https://docs.shipping360.pitneybowes.com/openapi/ordermanagement/order/createorder"
                                         target="_blank">API 360 Documentation</a>
                                 </li>
+
 
 
                             </ul>
