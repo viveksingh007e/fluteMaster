@@ -170,13 +170,15 @@
             target="_blank" class="link-btn signup-link">Pre-Prod</a>
         <a href="https://signup.sendpro360.pitneybowes.com/?theme=shipaccel&productId=shipAccel&itemId=SHIPACCEL_PREMIER&billingFrequency=Monthly&currency=USD"
             target="_blank" class="link-btn signup-link">Prod</a>
-
         <a href="https://pitneybowes.testrail.io/index.php?/projects/overview/41" target="_blank"
             class="link-btn">TestRail Repo</a>
+        <a href="https://pbapps.atlassian.net/wiki/spaces/SDP/pages/95055110/Release+Train+2+SP360+Tracking+Release+Calendar+Schedule"
+            target="_blank" class="link-btn">Release Calendar</a>
+        <a href="https://cloud.mongodb.com/v2/5f6a1606453409269d469038#/explorer/5f6cf3be898dcd5f44446b10/ppd-order-management/order/find"
+            target="_blank" class="link-btn">MongoDB Pre-Prod</a>    
         <a href="https://www.myworkday.com/pitneybowes/d/pex/home.htmld" target="_blank" class="link-btn">My Workday</a>
         <a href="https://pb-it.atlassian.net/servicedesk/customer/" target="_blank" class="link-btn">HelpDesk</a>
-        <a href="https://cloud.mongodb.com/v2/5f6a1606453409269d469038#/explorer/5f6cf3be898dcd5f44446b10/ppd-order-management/order/find"
-            target="_blank" class="link-btn">MongoDB Pre-Prod</a>
+
         <a href="https://iam.pb.com/IM/page.axd" target="_blank" class="link-btn">IAM Portal</a>
     </div><br />
 
@@ -391,8 +393,12 @@
                             <span class="copy-text" onclick="copyText(this)">autopitneytrack@gmail.com</span>
                             |
                             <span class="copy-text" onclick="copyText(this)">JasaiXpress#004</span>
+                            <br /><br />
 
-
+                            <strong>MCPM US</strong>
+                            <span class="copy-text" onclick="copyText(this)">sanitymcpm@gmail.com</span>
+                            |
+                            <span class="copy-text" onclick="copyText(this)">Horizon#123</span>
                             <br /><br />
 
                             <strong>BaseURL -- MCPM-CA</strong>
@@ -480,7 +486,7 @@
                                     <code>{archive: false}</code>, as archive = deleted)
                                 </li>
                                 <li>to update an entry in v3 on ppd, we need to share this code with Atul Yadav <br />
-                                    db.getCollection("shipment-batch-v3").updateMany(
+                                    <span class="copy-text" onclick="copyText(this)">db.getCollection("shipment-batch-v3").updateMany(
                                     { "orderInfo.orderID":"PB6a1e853135240cb71f24c7a5",subId:'zWA5Pj57DWGn'},
                                     {
                                     $set: {
@@ -491,6 +497,7 @@
                                     }
                                     }
                                     )
+                                    </span>
                                 </li>
                                 <li>A sample MR raised previously:- <br />
                                     <a href="https://gitlab.com/pitneybowes/innovation/sendtech/sendpro-commercial/config/production/k8s-prd-apps-config/-/merge_requests/3932"
