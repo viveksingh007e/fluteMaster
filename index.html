@@ -89,7 +89,7 @@
         .admin-dropdown-menu {
             display: none;
             position: absolute;
-            top: calc(100% + 4px);
+            top: 100%;
             left: 0;
             background: #1a1a2e;
             border: 1px solid #8f2f99;
@@ -99,6 +99,15 @@
             min-width: 120px;
             flex-direction: column;
             gap: 6px;
+        }
+
+        .admin-dropdown-menu::before {
+            content: "";
+            position: absolute;
+            top: -6px;
+            left: 0;
+            width: 100%;
+            height: 6px;
         }
 
         .admin-dropdown-menu.open {
