@@ -105,6 +105,11 @@
             display: flex;
         }
 
+        .admin-dropdown:hover .admin-dropdown-menu,
+        .admin-dropdown:focus-within .admin-dropdown-menu {
+            display: flex;
+        }
+
         .admin-dropdown-menu .link-btn {
             display: block;
             white-space: nowrap;
@@ -188,19 +193,22 @@
             class="link-btn">PS Board</a>
         <a href="https://pbapps.atlassian.net/jira/software/c/projects/OMS/boards/17239" target="_blank"
             class="link-btn">OMS Board</a>
-        <a class="link-btn shipaccel-link" style="text-decoration: none;border-radius:100px">ShipAccel >> </a>
         <div class="admin-dropdown">
-            <button class="link-btn shipaccel-link" onclick="this.nextElementSibling.classList.toggle('open')" style="cursor:pointer;border:none;">Admin &#9660;</button>
+            <button class="link-btn shipaccel-link" type="button" style="cursor:pointer;border:none;">ShipAccel &#9660;</button>
+            <div class="admin-dropdown-menu">
+                <a href="https://spa-ui-qa.sendpro360.pitneycloud.com/" target="_blank" class="link-btn shipaccel-link">QA</a>
+                <a href="https://spa-ui-dev.sendpro360.pitneycloud.com/" target="_blank" class="link-btn shipaccel-link">DEV</a>
+                <a href="https://shipaccel-ppd.sendpro360.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">PPD</a>
+            </div>
+        </div>
+        <div class="admin-dropdown">
+            <button class="link-btn shipaccel-link" type="button" style="cursor:pointer;border:none;">Admin &#9660;</button>
             <div class="admin-dropdown-menu">
                 <a href="https://spa-admin-ui-qa.sendpro360.pitneycloud.com/" target="_blank" class="link-btn shipaccel-link">QA</a>
                 <a href="https://admin-ppd.sendpro360.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">Commercial</a>
                 <a href="https://admin-ppd.spo.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">Global</a>
             </div>
         </div>
-        <a href="https://spa-ui-qa.sendpro360.pitneycloud.com/" target="_blank" class="link-btn shipaccel-link">QA</a>
-        <a href="https://spa-ui-dev.sendpro360.pitneycloud.com/" target="_blank" class="link-btn shipaccel-link">DEV</a>
-        <a href="https://shipaccel-ppd.sendpro360.pitneybowes.com/" target="_blank"
-            class="link-btn shipaccel-link">PPD</a>
             <a href="https://app-global-ppd.spo.pitneybowes.com/sending" target="_blank"
             class="link-btn shipaccel-link">PPD Global PS</a>
         <a href="https://app-ca-ppd.shipping360.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">PPD
@@ -210,7 +218,7 @@
         <a href="https://shipaccel.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">PROD</a>
         <a href="https://app-pdx.sendpro360.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">PDX</a>
         <div class="admin-dropdown">
-            <button class="link-btn signup-link" onclick="this.nextElementSibling.classList.toggle('open')" style="cursor:pointer;border:none;">SignUp &#9660;</button>
+            <button class="link-btn signup-link" type="button" style="cursor:pointer;border:none;">SignUp &#9660;</button>
             <div class="admin-dropdown-menu">
                 <a href="https://signup-qa.sendpro360.pitneycloud.com/?theme=shipaccel&productId=shipAccel&itemId=SHIPACCEL_PREMIER&billingFrequency=Monthly&currency=USD" target="_blank" class="link-btn signup-link">QA</a>
                 <a href="https://signup-ppd.sendpro360.pitneybowes.com/?theme=shipaccel&productId=shipAccel&itemId=SHIPACCEL_PREMIER&billingFrequency=Monthly&currency=USD" target="_blank" class="link-btn signup-link">Pre-Prod</a>
@@ -754,13 +762,6 @@
                 // Ensure collapsed by default
                 content.style.display = "none";
                 arrow.style.transform = "rotate(0deg)";
-            }
-        });
-
-        // Close admin dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.admin-dropdown')) {
-                document.querySelectorAll('.admin-dropdown-menu.open').forEach(m => m.classList.remove('open'));
             }
         });
 
