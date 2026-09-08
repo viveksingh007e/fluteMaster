@@ -229,6 +229,67 @@
             padding: 18px 22px;
             min-width: 0;
         }
+
+        .card-toggle-btn {
+            letter-spacing: 1px;
+            width: 100%;
+            background: #364418;
+            color: #ececec;
+            padding: 12px 14px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            text-align: left;
+        }
+
+        #gridCardsToggleBtn {
+            justify-content: center;
+            text-align: center;
+        }
+
+        .card-toggle-arrow {
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+
+        .card-collapsible-content {
+            display: none;
+            padding-top: 12px;
+        }
+
+        .quick-copy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .quick-copy-col {
+            background: #1f2f42;
+            border: 1px solid #35587c;
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        .quick-copy-col-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #d6f0ff;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 1000px) {
+            .quick-copy-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -237,22 +298,11 @@
 <body>
 
     <div id="top-links" class="links-grid">
-        <div class="ps-dropdown">
-            <button class="link-btn" type="button"
-                onclick="window.open('https://pbapps.atlassian.net/jira/software/c/projects/PITNEYSHIP/boards/14092', '_blank', 'noopener,noreferrer')"
-                style="cursor:pointer;border:none;">PS Board &#9660;</button>
-            <div id="ps-board-menu" class="ps-dropdown-menu">
-                <a href="https://pbapps.atlassian.net/browse/PITNEYSHIP-25237" target="_blank"
-                    class="link-btn">Ukraine</a>
-                <a href="https://pbapps.atlassian.net/browse/PITNEYSHIP-25496" target="_blank"
-                    class="link-btn">Ireland</a>
-                <a href="https://pbapps.atlassian.net/browse/PITNEYSHIP-25503" target="_blank"
-                    class="link-btn">Serbia</a>
-                <a href="https://gitlab.com/pitneybowes/innovation/sendtech/sendproanywhere/sendpropolyrepo/sending-e2e/-/tree/master?ref_type=heads"
-                    target="_blank" class="link-btn">GitLab Cypress</a>
 
-            </div>
-        </div>
+        <a href="https://pbapps.atlassian.net/jira/software/c/projects/PITNEYSHIP/boards/14092" target="_blank"
+            class="link-btn">PS Board</a>
+
+
         <a href="https://pbapps.atlassian.net/jira/software/c/projects/OMS/boards/17239" target="_blank"
             class="link-btn">OMS Board</a>
         <div class="admin-dropdown">
@@ -260,10 +310,13 @@
                 style="cursor:pointer;border:none;text-decoration: none;">Q A &#9660;</button>
             <div class="admin-dropdown-menu">
                 <a href="https://spa-ui-qa.sendpro360.pitneycloud.com/" target="_blank"
-                    class="link-btn shipaccel-link">PS / SA</a>
+                    class="link-btn shipaccel-link">Commercial</a>
+                <a href="https://spa-ui-qa.fedramp.pitneycloud.com/" target="_blank"
+                    class="link-btn shipaccel-link">FedRamp</a>
                 <a href="https://spa-admin-ui-qa.sendpro360.pitneycloud.com/" target="_blank"
                     class="link-btn shipaccel-link">Admin</a>
-                <!-- <a href="https://shipaccel-ppd.sendpro360.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">PPD</a> -->
+                <a href="https://spa-ui-prv.sendpro360.pitneycloud.com/" target="_blank"
+                    class="link-btn shipaccel-link">PerV</a>
             </div>
         </div>
         <div class="admin-dropdown">
@@ -271,8 +324,12 @@
                 style="cursor:pointer;border:none;text-decoration: none;">D E V &#9660;</button>
             <div class="admin-dropdown-menu">
                 <a href="https://spa-ui-dev.sendpro360.pitneycloud.com/" target="_blank"
-                    class="link-btn shipaccel-link">PS / SA</a>
-                
+                    class="link-btn shipaccel-link">Commercial</a>
+                <a href="https://spa-ui-dev.fedramp.pitneycloud.com/" target="_blank"
+                    class="link-btn shipaccel-link">FedRamp</a>
+                <a href="https://spa-ui-v2-dev.sendpro360.pitneycloud.com/" target="_blank"
+                    class="link-btn shipaccel-link">Dev V2 PS</a>
+
             </div>
         </div>
 
@@ -283,6 +340,8 @@
                 style="cursor:pointer;border:none;text-decoration: none;">P P D &#9660;</button>
             <div class="admin-dropdown-menu">
 
+                <a href="https://app-ppd.sendpro360.pitneybowes.com/user" target="_blank"
+                    class="link-btn shipaccel-link">Commercial</a>
                 <a href="https://app-global-ppd.spo.pitneybowes.com/sending" target="_blank"
                     class="link-btn shipaccel-link">Global</a>
                 <a href="https://admin-ppd.sendpro360.pitneybowes.com/" target="_blank"
@@ -293,7 +352,7 @@
                     class="link-btn shipaccel-link">PPD CA</a>
                 <a href="https://app-ppd-pdx.sendpro360.pitneybowes.com/orders" target="_blank"
                     class="link-btn shipaccel-link">PPD PDX</a>
-                
+
 
             </div>
         </div>
@@ -303,16 +362,18 @@
                 style="cursor:pointer;border:none;text-decoration: none;">P R O D &#9660;</button>
             <div class="admin-dropdown-menu">
                 <a href="https://app-global.shipping360.pitneybowes.com/" target="_blank"
-                    class="link-btn shipaccel-link">Global PS</a>
-                <a href="https://shipaccel.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">ShipAccel </a>
-                <a href="https://app-pdx.sendpro360.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">Prod PDX</a>
-                
-                
+                    class="link-btn shipaccel-link">Global</a>
+                <a href="https://shipaccel.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">ShipAccel
+                </a>
+                <a href="https://app-pdx.sendpro360.pitneybowes.com/" target="_blank"
+                    class="link-btn shipaccel-link">Prod PDX</a>
+
+
             </div>
         </div>
-        
 
-        
+
+
         <div class="admin-dropdown">
             <button class="link-btn signup-link" type="button"
                 style="cursor:pointer;border:none;text-decoration: none;">SignUp &#9660;</button>
@@ -350,6 +411,7 @@
             <button class="link-btn" type="button" style="cursor:pointer;border:none;text-decoration: none;">Misc
                 &#9660;</button>
             <div class="admin-dropdown-menu">
+                <a href="SP360_Release_Train_Guide.html" target="_blank" class="link-btn">Release Train Guide</a>
                 <a href="https://gitlab.com/pitneybowes/innovation/sendtech/sendproanywhere/apps/services/digital-commerce-services/services/oms-order-management/-/blob/sp360comm/dev/swagger.yaml?ref_type=heads"
                     target="_blank" class="link-btn">Swagger Sanity</a>
                 <a href="https://docs.shipping360.pitneybowes.com/openapi/ordermanagement/order/createorder"
@@ -360,187 +422,39 @@
         </div>
     </div><br />
 
+    <div class="card" style="margin-bottom:12px;">
+        
 
-    <div class="grid">
-        <!-- ===== LEFT: ALL USERS IN ONE CARD ===== -->
-        <div class="card">
-            <div class="item">
-                <strong>OMS</strong>
-                <span class="copy-text" onclick="copyText(this)">shipaccelnewgrid.qa_oms6.21</span>
-                |
-                <span class="copy-text" onclick="copyText(this)">Horizon#1234</span>
-            </div>
-            <div class="item">
-                <strong>NON‑OMS</strong>
-                <span class="copy-text" onclick="copyText(this)">shipaccelnewgrid.qa_oms5.21</span>
-                |
-                <span class="copy-text" onclick="copyText(this)">Horizon#1234</span>
-            </div>
-            <div class="item">
-                <strong>POSTMAN</strong>
-                <span class="copy-text" onclick="copyText(this)">MS_0201_QA3</span>
-                |
-                <span class="copy-text" onclick="copyText(this)">Pitney@12345</span>
-                |
-                <span class="copy-text" onclick="copyText(this)" style="font-size:12px">zWA5Pj57DWGn</span>
-            </div>
-            <div class="item">
-                <strong>Shopify Conn</strong>
-                <span class="copy-text" onclick="copyText(this)">testshipAccelM</span>
-                |
-                <span class="copy-text" onclick="copyText(this)">IshikaM2013@</span>
-            </div>
-            <div class="item">
-                <strong>PPD</strong>
-                <span class="copy-text" onclick="copyText(this)">OMSTesting05Jan03</span>
-                |
-                <span class="copy-text" onclick="copyText(this)">Pitney@12345</span>
-            </div>
-            <div class="item">
-                <strong>PROD</strong>
-                <span class="copy-text" onclick="copyText(this)">vivek.kumar2@pb.com</span>
-                |
-                <span class="copy-text" onclick="copyText(this)">Quality@3210</span>
-            </div>
-            <div class="item">
-                <strong>DEV</strong>
-                <span class="copy-text" onclick="copyText(this)">ShipAccel_Ent_SinglePayer_User1</span>
-                |
-                <span class="copy-text" onclick="copyText(this)">suresh.oms.user</span>
+        <div class="quick-copy-grid">
+            <div class="quick-copy-col">
+                <div class="quick-copy-col-title">QA</div>
+                <div class="item"><strong>PSE</strong> <span class="copy-text" onclick="copyText(this)">pse_test_065</span></div>
+                <div class="item"><strong>PSP</strong> <span class="copy-text" onclick="copyText(this)">psp_us_test_qa009_new9282</span></div>
+                <div class="item"><strong>PS</strong> <span class="copy-text" onclick="copyText(this)">ps_us_test_ecommFlexUSPSFee32</span></div>
+                <div class="item"><strong>FedRamp</strong> <span class="copy-text" onclick="copyText(this)">fed_ent1@yopmail.com</span> / <span class="copy-text" onclick="copyText(this)">Aqswde@1234</span></div>
+                
             </div>
 
-            <div class="item">
-                <strong>Enterprise</strong>
-                <span class="copy-text" onclick="copyText(this)">ShipAccel_Ent_SinglePayer_User1</span>
+            <div class="quick-copy-col">
+                <div class="quick-copy-col-title">DEV</div>
+                <div class="item"><strong>PSE</strong> <span class="copy-text" onclick="copyText(this)">pse_test_065</span></div>
+                <div class="item"><strong>PSP</strong> <span class="copy-text" onclick="copyText(this)">testpsp001</span></div>
+                <div class="item"><strong>PS</strong> <span class="copy-text" onclick="copyText(this)">ps_us_test_ecommFlexUSPSFee32</span></div>
+                <div class="item"><strong>Fedramp</strong> <span class="copy-text" onclick="copyText(this)">newfeddevshared@yopmail.com</span> / <span class="copy-text" onclick="copyText(this)">Aqswde@123</span></div>
+                <div class="item"><strong>Global</strong> <span class="copy-text" onclick="copyText(this)">ankush_irelandmasterdev@yopmail.com</span> / <span class="copy-text" onclick="copyText(this)">Pitney@123</span></div>
+                <div class="item"><strong>PSP CA</strong> <span class="copy-text" onclick="copyText(this)">spcadev02newdev</span></div>
+                <div class="item"><strong>PSP UK</strong> <span class="copy-text" onclick="copyText(this)">psp_test_usr_967663428</span></div>
             </div>
 
-            <div class="item">
-                <strong>MCPM US</strong>
-                <span class="copy-text" onclick="copyText(this)">mcpm_us_orderapi</span>
-            </div>
-
-            <div class="item">
-                <strong>MCPM CA Freight</strong>
-                <span class="copy-text" onclick="copyText(this)">mcpm_orderapi_ca</span>
-            </div>
-            <div class="item">
-                <strong>BofA</strong>
-                <span class="copy-text" onclick="copyText(this)">bofa_addonPlan</span>
-            </div>
-            <div class="item">
-                <strong>PitneyShip</strong>
-                <span class="copy-text" onclick="copyText(this)">romania_ent</span>| V3 -
-                <span class="copy-text" onclick="copyText(this)">saks_001</span>
-            </div>
-            <div class="item">
-                <strong>PitneyShip Admin</strong>
-                <span class="copy-text" onclick="copyText(this)">sohail.admin1</span> |
-                <span class="copy-text" onclick="copyText(this)">vasu.bansal@pb.com</span>
-            </div>
-
-        </div>
-
-        <!-- ===== RIGHT: CONNECTORS ===== -->
-        <div class="card">
-            <div style="display:flex; gap:16px; height:100%">
-                <!-- Tabs -->
-                <div class="connector-tabs">
-                    <button class="connector-tab" onclick="showConnector('wix')">WIX</button>
-                    <button class="connector-tab" onclick="showConnector('shopify')">Shopify</button>
-                    <button class="connector-tab" onclick="showConnector('bigc')">Big Commerce</button>
-                    <button class="connector-tab" onclick="showConnector('quickbook')">QuickBook</button>
-                    <button class="connector-tab" onclick="showConnector('netSuite')">NetSuite</button>
-                    <button class="connector-tab" onclick="showConnector('revolutionParts')">Revolution Parts</button>
-                </div>
-                <!-- Details -->
-                <div style="flex:1;">
-                    <div id="wix-details" class="connector-details-frame" style="display:none">
-                        <span class="copy-text"><a
-                                href="https://manage.wix.com/dashboard/5ca6c791-62d6-48b3-b563-f2741a005db5/ecom-platform/orders-list?referralInfo=sidebar&sort=createdDate+desc&selectedColumns=number%2CcreatedDate%2CcustomerName%2CpaymentStatus%2CfulfillmentStatus%2Ctotal%2ChasReceipt+false%2CitemQuantity%2CaggregatedBusinessLocationName+false%2ClocationNames+false%2CchannelInfo.externalOrderId+false%2CtotalAdditionalFees+false%2CattributionSource+false%2CchannelInfo.type+false%2CfulfillmentService+false%2CestimatedDeliveryTime+false%2CdeliveryMethod+false%2CshippingAddress+false%2CexternalFulfillments.trackingInfo.trackingNumber+false%2Ctags"
-                                target="_blank">WIX Link</a></span><br />
-                        <span class="copy-text" onclick="copyText(this)">sandeep.shiralkar123@yopmail.com</span> | <span
-                            class="copy-text" onclick="copyText(this)">Pitney@1234</span><br>
-                        <span class="copy-text" onclick="copyText(this)">ecomstore@pb.com</span> | <span
-                            class="copy-text" onclick="copyText(this)">Pitney@123</span>
-                    </div>
-                    <div id="shopify-details" class="connector-details-frame" style="display:none">
-                        <span class="copy-text"><a href="https://admin.shopify.com/store/ecomqatest25/orders"
-                                target="_blank">Shopify Link</a></span><br>
-                        <span class="copy-text" onclick="copyText(this)">2111koro7@gmail.com</span> | <span
-                            class="copy-text" onclick="copyText(this)">Horizon#123</span><br /><br />
-                        <span class="copy-text" onclick="copyText(this)">ambuj15June@yopmail.com</span> | <span
-                            class="copy-text" onclick="copyText(this)">9695596622</span>
-                    </div>
-                    <div id="bigc-details" class="connector-details-frame" style="display:none">
-                        <span class="copy-text"><a href="https://store-9ayd0ruu3a.mybigcommerce.com/manage/orders"
-                                target="_blank">Bigcommerce Link</a></span><br>
-                        <span class="copy-text" onclick="copyText(this)">shivamsanjay.desale@pb.com</span> | <span
-                            class="copy-text" onclick="copyText(this)">Horizon#1234</span>
-                        <br><br>
-
-                        <div>
-                            <span class="copy-text" id="bigc-storeHash" onclick="copyText(this)"
-                                data-copy="9ayd0ruu3a"><strong>Store Hash</strong></span>
-                            <span class="copy-text" id="bigc-accessToken" onclick="copyText(this)"
-                                data-copy="13h1jzvvb0yzcjiwyaudzs9bfn41htl"><strong>Access Token</strong></span>
-                        </div>
-                    </div>
-                    <div id="quickbook-details" class="connector-details-frame" style="display:none;">
-                        <span class="copy-text"><a href="https://sandbox.qbo.intuit.com/app/sales"
-                                target="_blank">QuickBook Link</a></span><br>
-                        <span class="copy-text" onclick="copyText(this)">ambuj.singh@pb.com</span> | <span
-                            class="copy-text" onclick="copyText(this)">Pitney@12345</span>
-                        <br><br>
-                        <div><span class="copy-text" id="quickbook-clientId" onclick="copyText(this)"
-                                data-copy="ABUbnzYP3HH3g4yTEbpGSLiD5LhzXZqHF1x4jDVXqoZJ6eIhct"><strong>Client
-                                    ID</strong></span>
-
-
-                            <span class="copy-text" id="quickbook-clientSecret" onclick="copyText(this)"
-                                data-copy="Rlv6BYTgwCaRpdIbW25F8fE6s4IsFbW2jbH2Oacd"><strong>Client Secret</strong>
-                                </spans>
-                        </div>
-                    </div>
-                    <div id="netSuite-details" class="connector-details-frame" style="display:none;">
-                        <span class="copy-text"><a href="https://td2917644.app.netsuite.com/" target="_blank">NetSuite
-                                Link</a></span> |
-                        <span class="copy-text" onclick="copyText(this)">ambuj.singh@pb.com</span> | <span
-                            class="copy-text" onclick="copyText(this)">Pitney@12345</span>
-                        <br><br>
-
-                        <div>
-                            <span class="copy-text" id="netsuite-consumerKey" onclick="copyText(this)"
-                                data-copy="537e0163c5cf626ee4bb9821746487db541a748ef4556dbc7297f1cc4b568e6e"><strong>Consumer
-                                    Key</strong></span>
-                            <span class="copy-text" id="netsuite-consumerSecret" onclick="copyText(this)"
-                                data-copy="671a34083e5ca89f0bc9f9b971041ceda4626c01eb976bb0abcf18d1dd2e4905"><strong>Consumer
-                                    Secret</strong></span>
-                            <span class="copy-text" id="netsuite-tokenId" onclick="copyText(this)"
-                                data-copy="b1e06553d58ac72a9f8e5feb62494ee843519e267e02b0a317dd54342fb8f284"><strong>Token
-                                    ID</strong></span>
-                            <span class="copy-text" id="netsuite-tokenSecret" onclick="copyText(this)"
-                                data-copy="96a6efe117b29cc52ed476dc82bcd4a72fe939eb895b2718fb2fab3087ef3bd8"><strong>Token
-                                    Secret</strong></span>
-                            <span class="copy-text" id="netsuite-companyUrl" onclick="copyText(this)"
-                                data-copy="https://td2917644.suitetalk.api.netsuite.com"><strong>Company
-                                    URL</strong></span>
-                        </div>
-                    </div>
-                    <div id="revolutionParts-details" class="connector-details-frame" style="display:none;">
-
-                        <span class="copy-text" onclick="copyText(this)">RP-927befb1a803</span> | <span
-                            class="copy-text" onclick="copyText(this)">ded1a42eedf7871f</span>
-                        <br><br>
-
-
-                    </div>
-                </div>
+            <div class="quick-copy-col">
+                <div class="quick-copy-col-title">PPD</div>
+                <div class="item"><strong>PSE</strong> <span class="copy-text" onclick="copyText(this)">pse_test_065</span></div>
+                 <div class="item"><strong>Global</strong> <span class="copy-text" onclick="copyText(this)">Uappd01</span></div>
             </div>
         </div>
     </div>
 
-    </div>
-    <br />
+
     <div class="gridKnowledge">
 
         <div class="card" style="padding:0;">
@@ -557,13 +471,14 @@
                     <!-- Tabs -->
 
                     <div class="connector-tabs">
+                        <button class="connector-tab kb-tab" onclick="showKBTab('pitneyship-info')">PitneyShip
+                            Info</button>
                         <button class="connector-tab kb-tab" onclick="showKBTab('prod-cred')">PROD Credentials</button>
                         <button class="connector-tab kb-tab" onclick="showKBTab('ppd-cred')">PPD/MCPM
                             Credentials</button>
                         <button class="connector-tab kb-tab" onclick="showKBTab('dm-job')">Running DM Job</button>
                         <button class="connector-tab kb-tab" onclick="showKBTab('mongo')">SUMO / Mongo DB</button>
-                        <button class="connector-tab kb-tab" onclick="showKBTab('pitneyship-info')">PitneyShip
-                            Info</button>
+                        
                         <button class="connector-tab kb-tab" onclick="showKBTab('adhoc')">Important Adhoc Info</button>
 
                     </div>
@@ -728,46 +643,42 @@
                                     _sourcecategory="/aws/lambda/sp360-oms-order-writeback-event-lambda-prd-pdx-lambda-fn"
                                     and "*7792105160894*"
                                 </span><br />
-
                             </ul>
-
-
 
                         </div>
 
                         <div id="pitneyship-info" class="connector-details-frame kb-details-frame"
                             style="display:none; line-height: 25px;">
-
+                            <span><b>Add New Carrier Data: </b></span>
                             Account Number: <span class="copy-text" onclick="copyText(this)">190009225</span>
                             API Key- <span class="copy-text" onclick="copyText(this)">apP1qS2dR2iW2h</span>
                             API Secret- <span class="copy-text" onclick="copyText(this)">F!9hU#8aQ#8fK#3y</span>
 
-
-                            <details>
+                                                       <details>
                                 <summary style="cursor:pointer; font-weight:bold;">How to Onboard a User of a newContry
                                     and Carrier Onboarding</summary>
-                                <div style="margin-top: 8px;">
-                                    <ul>
-                                        <li>Login to Admin</li>
-                                        <li>Click on Platform</li>
-                                        <li>Manage EnterPrise - Create Enterprise for the newCountry</li>
-                                        <li>Add that enterprise to the Admin user, you're logged in with</li>
-                                        <li>Now it will show in the dorpdown</li>
-                                        <li>Add Subscription / Or use another enterprise that has all subcriptions</li>
-                                        <li>Add Division - Add Location</li>
-                                        <li>Add User for Enterprise Level, associate it with created location</li>
-                                        <li>To add Carrier, go to global setting--> subscription</li>
-                                        <li>select location country as ukraine, it will list available carriers</li>
-                                        <li>now to add carrier, go to carrier under carrier settings --> Add Carrier
-                                        </li>
-                                        <li>refresh if it does not populate</li>
-                                        <li>add the carrier details</li>
-                                        <li>there is an ongoing issue about selecting account type, just select it twice
-                                        </li>
-                                        <li>DPS automation rule is configured in Admin for That location, here Ukraine
-                                        </li>
-                                    </ul>
-                                </div>
+
+                                <ol>
+                                    <li>Login to Admin</li>
+                                    <li>Click on Platform</li>
+                                    <li>Manage EnterPrise - Create Enterprise for the newCountry</li>
+                                    <li>Add that enterprise to the Admin user, you're logged in with</li>
+                                    <li>Now it will show in the dorpdown</li>
+                                    <li>Add Subscription / Or use another enterprise that has all subcriptions</li>
+                                    <li>Add Division - Add Location</li>
+                                    <li>Add User for Enterprise Level, associate it with created location</li>
+                                    <li>To add Carrier, go to global setting--> subscription</li>
+                                    <li>select location country as ukraine, it will list available carriers</li>
+                                    <li>now to add carrier, go to carrier under carrier settings --> Add Carrier
+                                    </li>
+                                    <li>refresh if it does not populate</li>
+                                    <li>add the carrier details</li>
+                                    <li>there is an ongoing issue about selecting account type, just select it twice
+                                    </li>
+                                    <li>DPS automation rule is configured in Admin for That location, here Ukraine
+                                    </li>
+                                </ol>
+
                             </details>
 
                         </div>
@@ -814,7 +725,195 @@
 
     </div>
 
+     <button id="gridCardsToggleBtn" class="card-toggle-btn" type="button" style="margin-bottom:10px;text-align:center;">
+        <span id="gridCardsToggleArrow" class="card-toggle-arrow">&#9654;</span>
+        OMS Test Data and Connectors Info
+    </button>
 
+    <div class="grid">
+        <!-- ===== LEFT: ALL USERS IN ONE CARD ===== -->
+        <div id="omsTestDataCard" class="card" style="display:none;">
+            <div id="omsTestDataContent" class="card-collapsible-content">
+                <div class="item">
+                    <strong>OMS</strong>
+                    <span class="copy-text" onclick="copyText(this)">shipaccelnewgrid.qa_oms6.21</span>
+                    |
+                    <span class="copy-text" onclick="copyText(this)">Horizon#1234</span>
+                </div>
+                <div class="item">
+                    <strong>NON‑OMS</strong>
+                    <span class="copy-text" onclick="copyText(this)">shipaccelnewgrid.qa_oms5.21</span>
+                    |
+                    <span class="copy-text" onclick="copyText(this)">Horizon#1234</span>
+                </div>
+                <div class="item">
+                    <strong>POSTMAN</strong>
+                    <span class="copy-text" onclick="copyText(this)">MS_0201_QA3</span>
+                    |
+                    <span class="copy-text" onclick="copyText(this)">Pitney@12345</span>
+                    |
+                    <span class="copy-text" onclick="copyText(this)" style="font-size:12px">zWA5Pj57DWGn</span>
+                </div>
+                <div class="item">
+                    <strong>Shopify Conn</strong>
+                    <span class="copy-text" onclick="copyText(this)">testshipAccelM</span>
+                    |
+                    <span class="copy-text" onclick="copyText(this)">IshikaM2013@</span>
+                </div>
+                <div class="item">
+                    <strong>PPD</strong>
+                    <span class="copy-text" onclick="copyText(this)">OMSTesting05Jan03</span>
+                    |
+                    <span class="copy-text" onclick="copyText(this)">Pitney@12345</span>
+                </div>
+                <div class="item">
+                    <strong>PROD</strong>
+                    <span class="copy-text" onclick="copyText(this)">vivek.kumar2@pb.com</span>
+                    |
+                    <span class="copy-text" onclick="copyText(this)">Quality@3210</span>
+                </div>
+                <div class="item">
+                    <strong>DEV</strong>
+                    <span class="copy-text" onclick="copyText(this)">ShipAccel_Ent_SinglePayer_User1</span>
+                    |
+                    <span class="copy-text" onclick="copyText(this)">suresh.oms.user</span>
+                </div>
+
+                <div class="item">
+                    <strong>Enterprise</strong>
+                    <span class="copy-text" onclick="copyText(this)">ShipAccel_Ent_SinglePayer_User1</span>
+                </div>
+
+                <div class="item">
+                    <strong>MCPM US</strong>
+                    <span class="copy-text" onclick="copyText(this)">mcpm_us_orderapi</span>
+                </div>
+
+                <div class="item">
+                    <strong>MCPM CA Freight</strong>
+                    <span class="copy-text" onclick="copyText(this)">mcpm_orderapi_ca</span>
+                </div>
+                <div class="item">
+                    <strong>BofA</strong>
+                    <span class="copy-text" onclick="copyText(this)">bofa_addonPlan</span>
+                </div>
+                <div class="item">
+                    <strong>PitneyShip</strong>
+                    <span class="copy-text" onclick="copyText(this)">romania_ent</span>| V3 -
+                    <span class="copy-text" onclick="copyText(this)">saks_001</span>
+                </div>
+                <div class="item">
+                    <strong>PitneyShip Admin</strong>
+                    <span class="copy-text" onclick="copyText(this)">sohail.admin1</span> |
+                    <span class="copy-text" onclick="copyText(this)">vasu.bansal@pb.com</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== RIGHT: CONNECTORS ===== -->
+        <div id="connectorsInfoCard" class="card" style="display:none;">
+            <div id="connectorsInfoContent" class="card-collapsible-content">
+                <div style="display:flex; gap:16px; height:100%">
+                    <!-- Tabs -->
+                    <div class="connector-tabs">
+                        <button class="connector-tab" onclick="showConnector('wix')">WIX</button>
+                        <button class="connector-tab" onclick="showConnector('shopify')">Shopify</button>
+                        <button class="connector-tab" onclick="showConnector('bigc')">Big Commerce</button>
+                        <button class="connector-tab" onclick="showConnector('quickbook')">QuickBook</button>
+                        <button class="connector-tab" onclick="showConnector('netSuite')">NetSuite</button>
+                        <button class="connector-tab" onclick="showConnector('revolutionParts')">Revolution Parts</button>
+                    </div>
+                    <!-- Details -->
+                    <div style="flex:1;">
+                        <div id="wix-details" class="connector-details-frame" style="display:none">
+                            <span class="copy-text"><a
+                                    href="https://manage.wix.com/dashboard/5ca6c791-62d6-48b3-b563-f2741a005db5/ecom-platform/orders-list?referralInfo=sidebar&sort=createdDate+desc&selectedColumns=number%2CcreatedDate%2CcustomerName%2CpaymentStatus%2CfulfillmentStatus%2Ctotal%2ChasReceipt+false%2CitemQuantity%2CaggregatedBusinessLocationName+false%2ClocationNames+false%2CchannelInfo.externalOrderId+false%2CtotalAdditionalFees+false%2CattributionSource+false%2CchannelInfo.type+false%2CfulfillmentService+false%2CestimatedDeliveryTime+false%2CdeliveryMethod+false%2CshippingAddress+false%2CexternalFulfillments.trackingInfo.trackingNumber+false%2Ctags"
+                                    target="_blank">WIX Link</a></span><br />
+                            <span class="copy-text" onclick="copyText(this)">sandeep.shiralkar123@yopmail.com</span> | <span
+                                class="copy-text" onclick="copyText(this)">Pitney@1234</span><br>
+                            <span class="copy-text" onclick="copyText(this)">ecomstore@pb.com</span> | <span
+                                class="copy-text" onclick="copyText(this)">Pitney@123</span>
+                        </div>
+                        <div id="shopify-details" class="connector-details-frame" style="display:none">
+                            <span class="copy-text"><a href="https://admin.shopify.com/store/ecomqatest25/orders"
+                                    target="_blank">Shopify Link</a></span><br>
+                            <span class="copy-text" onclick="copyText(this)">2111koro7@gmail.com</span> | <span
+                                class="copy-text" onclick="copyText(this)">Horizon#123</span><br /><br />
+                            <span class="copy-text" onclick="copyText(this)">ambuj15June@yopmail.com</span> | <span
+                                class="copy-text" onclick="copyText(this)">9695596622</span>
+                        </div>
+                        <div id="bigc-details" class="connector-details-frame" style="display:none">
+                            <span class="copy-text"><a href="https://store-9ayd0ruu3a.mybigcommerce.com/manage/orders"
+                                    target="_blank">Bigcommerce Link</a></span><br>
+                            <span class="copy-text" onclick="copyText(this)">shivamsanjay.desale@pb.com</span> | <span
+                                class="copy-text" onclick="copyText(this)">Horizon#1234</span>
+                            <br><br>
+
+                            <div>
+                                <span class="copy-text" id="bigc-storeHash" onclick="copyText(this)"
+                                    data-copy="9ayd0ruu3a"><strong>Store Hash</strong></span>
+                                <span class="copy-text" id="bigc-accessToken" onclick="copyText(this)"
+                                    data-copy="13h1jzvvb0yzcjiwyaudzs9bfn41htl"><strong>Access Token</strong></span>
+                            </div>
+                        </div>
+                        <div id="quickbook-details" class="connector-details-frame" style="display:none;">
+                            <span class="copy-text"><a href="https://sandbox.qbo.intuit.com/app/sales"
+                                    target="_blank">QuickBook Link</a></span><br>
+                            <span class="copy-text" onclick="copyText(this)">ambuj.singh@pb.com</span> | <span
+                                class="copy-text" onclick="copyText(this)">Pitney@12345</span>
+                            <br><br>
+                            <div><span class="copy-text" id="quickbook-clientId" onclick="copyText(this)"
+                                    data-copy="ABUbnzYP3HH3g4yTEbpGSLiD5LhzXZqHF1x4jDVXqoZJ6eIhct"><strong>Client
+                                        ID</strong></span>
+
+
+                                <span class="copy-text" id="quickbook-clientSecret" onclick="copyText(this)"
+                                    data-copy="Rlv6BYTgwCaRpdIbW25F8fE6s4IsFbW2jbH2Oacd"><strong>Client Secret</strong>
+                                    </spans>
+                            </div>
+                        </div>
+                        <div id="netSuite-details" class="connector-details-frame" style="display:none;">
+                            <span class="copy-text"><a href="https://td2917644.app.netsuite.com/" target="_blank">NetSuite
+                                    Link</a></span> |
+                            <span class="copy-text" onclick="copyText(this)">ambuj.singh@pb.com</span> | <span
+                                class="copy-text" onclick="copyText(this)">Pitney@12345</span>
+                            <br><br>
+
+                            <div>
+                                <span class="copy-text" id="netsuite-consumerKey" onclick="copyText(this)"
+                                    data-copy="537e0163c5cf626ee4bb9821746487db541a748ef4556dbc7297f1cc4b568e6e"><strong>Consumer
+                                        Key</strong></span>
+                                <span class="copy-text" id="netsuite-consumerSecret" onclick="copyText(this)"
+                                    data-copy="671a34083e5ca89f0bc9f9b971041ceda4626c01eb976bb0abcf18d1dd2e4905"><strong>Consumer
+                                        Secret</strong></span>
+                                <span class="copy-text" id="netsuite-tokenId" onclick="copyText(this)"
+                                    data-copy="b1e06553d58ac72a9f8e5feb62494ee843519e267e02b0a317dd54342fb8f284"><strong>Token
+                                        ID</strong></span>
+                                <span class="copy-text" id="netsuite-tokenSecret" onclick="copyText(this)"
+                                    data-copy="96a6efe117b29cc52ed476dc82bcd4a72fe939eb895b2718fb2fab3087ef3bd8"><strong>Token
+                                        Secret</strong></span>
+                                <span class="copy-text" id="netsuite-companyUrl" onclick="copyText(this)"
+                                    data-copy="https://td2917644.suitetalk.api.netsuite.com"><strong>Company
+                                        URL</strong></span>
+                            </div>
+                        </div>
+                        <div id="revolutionParts-details" class="connector-details-frame" style="display:none;">
+
+                            <span class="copy-text" onclick="copyText(this)">RP-927befb1a803</span> | <span
+                                class="copy-text" onclick="copyText(this)">ded1a42eedf7871f</span>
+                            <br><br>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <br />
 
     <!-- Inlined JS: script.js -->
     <script>
@@ -906,6 +1005,33 @@
         // Optionally, show the first connector by default
         document.addEventListener("DOMContentLoaded", () => {
             window.showConnector('wix');
+        });
+
+        // Single collapsible toggle for both cards in the main grid
+        document.addEventListener("DOMContentLoaded", function () {
+            var btn = document.getElementById('gridCardsToggleBtn');
+            var arrow = document.getElementById('gridCardsToggleArrow');
+            var omsCard = document.getElementById('omsTestDataCard');
+            var connectorsCard = document.getElementById('connectorsInfoCard');
+            var omsContent = document.getElementById('omsTestDataContent');
+            var connectorsContent = document.getElementById('connectorsInfoContent');
+            if (!btn || !arrow || !omsCard || !connectorsCard || !omsContent || !connectorsContent) return;
+
+            function setExpanded(isExpanded) {
+                omsCard.style.display = isExpanded ? "block" : "none";
+                connectorsCard.style.display = isExpanded ? "block" : "none";
+                omsContent.style.display = isExpanded ? "block" : "none";
+                connectorsContent.style.display = isExpanded ? "block" : "none";
+                arrow.style.transform = isExpanded ? "rotate(90deg)" : "rotate(0deg)";
+            }
+
+            // Ensure collapsed by default
+            setExpanded(false);
+
+            btn.addEventListener("click", function () {
+                var isExpanded = omsContent.style.display !== "none";
+                setExpanded(!isExpanded);
+            });
         });
     </script>
 
