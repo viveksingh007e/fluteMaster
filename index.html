@@ -304,6 +304,8 @@
 
         <a href="https://home.atlassian.com/o/525b4aj2-197j-1718-jk2c-ak896d998128/" target="_blank"
             class="link-btn">ROVO</a>
+            <a href="https://pitneybowes.testrail.io/index.php?/projects/overview/20"
+            target="_blank" class="link-btn">TestRail</a>
 
         <div class="admin-dropdown">
             <button class="link-btn shipaccel-link" type="button"
@@ -314,7 +316,9 @@
                 <a href="https://spa-ui-qa.fedramp.pitneycloud.com/" target="_blank"
                     class="link-btn shipaccel-link">FedRamp</a>
                 <a href="https://spa-admin-ui-qa.sendpro360.pitneycloud.com/" target="_blank"
-                    class="link-btn shipaccel-link">Admin</a>
+                    class="link-btn shipaccel-link">Admin Comm</a>
+                <a href="https://spa-admin-ui-qa.fedramp.pitneycloud.com/" target="_blank"
+                    class="link-btn shipaccel-link">Admin FedRamp</a>
                 <a href="https://spa-ui-prv.sendpro360.pitneycloud.com/" target="_blank"
                     class="link-btn shipaccel-link">PerV</a>
             </div>
@@ -327,6 +331,10 @@
                     class="link-btn shipaccel-link">Commercial</a>
                 <a href="https://spa-ui-dev.fedramp.pitneycloud.com/" target="_blank"
                     class="link-btn shipaccel-link">FedRamp</a>
+                <a href="https://spa-admin-ui-dev.sendpro360.pitneycloud.com/" target="_blank"
+                    class="link-btn shipaccel-link">Admin Comm</a>
+                <a href="https://spa-admin-ui-dev.fedramp.pitneycloud.com/" target="_blank"
+                    class="link-btn shipaccel-link">Admin FedRamp</a>
                 <a href="https://spa-ui-v2-dev.sendpro360.pitneycloud.com/" target="_blank"
                     class="link-btn shipaccel-link">Dev V2 PS</a>
 
@@ -360,7 +368,11 @@
         <div class="admin-dropdown">
             <button class="link-btn shipaccel-link" type="button"
                 style="cursor:pointer;border:none;text-decoration: none;">P R O D &#9660;</button>
+
             <div class="admin-dropdown-menu">
+
+                <a href="https://sendpro360.pitneybowes.com/" target="_blank"
+                    class="link-btn shipaccel-link">Commercial</a>
                 <a href="https://app-global.shipping360.pitneybowes.com/" target="_blank"
                     class="link-btn shipaccel-link">Global</a>
                 <a href="https://shipaccel.pitneybowes.com/" target="_blank" class="link-btn shipaccel-link">ShipAccel
@@ -387,8 +399,7 @@
             </div>
         </div>
 
-        <a href="https://pitneybowes.testrail.io/index.php?/suites/view/106&group_by=cases:section_id&group_order=asc&display=tree&display_deleted_cases=0"
-            target="_blank" class="link-btn">TestRail</a>
+        
         <a href="https://pbapps.atlassian.net/wiki/spaces/SDP/pages/95055110/Release+Train+2+SP360+Tracking+Release+Calendar+Schedule"
             target="_blank" class="link-btn">Release Calendar</a>
         <a href="https://cloud.mongodb.com/v2/5f6a1606453409269d469038#/explorer/5f6cf3be898dcd5f44446b10/ppd-order-management/order/find"
@@ -472,9 +483,12 @@
                         onclick="copyText(this)">pse_test_065@yopmail.com</span></div>
                 <div class="item"><strong>Global</strong> <span class="copy-text"
                         onclick="copyText(this)">Uappd01@yopmail.com</span></div>
-                
+
                 <div class="item"><strong>v1/v2</strong> <span class="copy-text"
                         onclick="copyText(this)">psp_us_test_qa009_new9282@yopmail.com</span></div>
+                <div class="item"><strong>PROD</strong> <span class="copy-text"
+                        onclick="copyText(this)">bansalvasu04@gmail.com</span></div>
+                
             </div>
         </div>
     </div>
@@ -674,10 +688,26 @@
 
                         <div id="pitneyship-info" class="connector-details-frame kb-details-frame"
                             style="display:none; line-height: 25px;">
-                            <span><b>Add New Carrier Data: </b></span>
+                            <span><b>Add DHL Carrier: </b></span>
                             Account Number: <span class="copy-text" onclick="copyText(this)">190009225</span>
                             API Key- <span class="copy-text" onclick="copyText(this)">apP1qS2dR2iW2h</span>
                             API Secret- <span class="copy-text" onclick="copyText(this)">F!9hU#8aQ#8fK#3y</span>
+                            <br />
+                            <span><b>Add USPS Carrier (from Admin Only): </b></span>
+                            GCS Partner ID: <span class="copy-text" onclick="copyText(this)">456312111</span>
+                            Valid BPN(A/N): <span class="copy-text" onclick="copyText(this)">0018191803</span>
+                            Mailer ID: <span class="copy-text" onclick="copyText(this)">112233</span>
+                            <br />
+                            <span><b>Add UPS Carrier (from Client only): </b></span>
+                            Account No.: <span class="copy-text" onclick="copyText(this)">9Q7Z5J</span>
+                            UserID: <span class="copy-text" onclick="copyText(this)">PBGCSHorizon</span>
+                            Password: <span class="copy-text" onclick="copyText(this)">P1tney@B0wes1</span>
+                            <br /><br />
+                            US Valid Address: <span class="copy-text" onclick="copyText(this)">27 Waterview Dr</span>, 
+                            <span class="copy-text" onclick="copyText(this)">06484-4361</span>, 
+                            <span class="copy-text" onclick="copyText(this)">Shelton</span>,  
+                            <span class="copy-text" onclick="copyText(this)">CT</span> 
+                             <br /><br />
 
                             <details>
                                 <summary style="cursor:pointer; font-weight:bold;">How to Onboard a User of a newCountry
@@ -707,7 +737,8 @@
                             </details>
 
                             <details>
-                                <summary style="cursor:pointer; font-weight:bold;">All regions we test are below:-</summary>
+                                <summary style="cursor:pointer; font-weight:bold;">All regions we test are below:-
+                                </summary>
 
                                 <ol>
                                     <li>Commercials - US</li>
